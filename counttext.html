@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		.wrapper { width: 230px; margin: 0 auto;}
+
+
+	</style>
+
+	<title>Count text</title>
+</head>
+<body>
+
+	<center> <h1>Word Count Machine</h1></center>
+
+	<div class="wrapper" id="main">
+		<textarea name="" id="defaultTxt" cols="30" rows="10" ></textarea> 
+
+		<center>
+			<button onclick="cook()" style="margin: 20px 0 0 0; display:block; height:30px; width:60px"> process </button>
+		</center>
+		<div id="result"> </div>
+	</div>
+
+
+
+
+	<script type="text/javascript">
+
+		var main = document.getElementById('main');
+		var getText = document.getElementById('defaultTxt');
+		
+		var print =	document.getElementById('result');
+		var removeTag = document.getElementsByClassName('dataClass');
+		var resultTxt;
+		var countp = 0;
+
+		var cook = function () {
+			 
+			resultTxt = '';
+
+			 (!countp>0)? resultTxt: print.removeChild(removeTag[0]);
+			 
+			 countp++;
+			printTxt()
+			console.log(`your result is \n \n ${resultTxt} \n and run ${countp} times ` )
+			
+		}
+
+		function processWord() {
+			var count = {};
+			getText.value.toLowerCase().split(' ').filter(Boolean).forEach(x => (count[x]) ? count[x]++ : count[x] = 1)
+			return count;
+		}
+
+
+		function printTxt() {
+			for(var i in processWord()){
+				resultTxt +=	i +"    "+ processWord()[i]+  '\n'  ;
+			}
+			mkptag(resultTxt);
+		}
+
+		
+
+		function mkptag(text){
+			var Ptag = document.createElement('p');
+			var textnode = document.createTextNode(text), pclass = 'dataClass';
+			Ptag.appendChild(textnode);
+			print.appendChild(Ptag);
+			Ptag.className = pclass;
+			
+
+		}
+			
+
+
+
+			
+
+	
+	</script>
+
+</body>
+</html>
