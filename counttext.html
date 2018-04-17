@@ -38,12 +38,11 @@
 
 		var cook = function () {
 			 
-			resultTxt = '';
-
-			 (!countp>0)? resultTxt: print.removeChild(removeTag[0]);
-			 
-			 countp++;
-			printTxt()
+				resultTxt = '';
+				(!countp>0)? resultTxt: print.removeChild(removeTag[0]);
+				countp++;
+				printTxt()
+			
 			console.log(`your result is \n \n ${resultTxt} \n and run ${countp} times ` )
 			
 		}
@@ -66,7 +65,7 @@
 
 		function mkptag(text){
 			var Ptag = document.createElement('p');
-			var textnode = document.createTextNode(text), pclass = 'dataClass';
+			var textnode = document.createTextNode("you use " + text + "times"), pclass = 'dataClass';
 			Ptag.appendChild(textnode);
 			print.appendChild(Ptag);
 			Ptag.className = pclass;
