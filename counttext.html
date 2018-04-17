@@ -56,7 +56,7 @@
 
 		function printTxt() {
 			for(var i in processWord()){
-				resultTxt +=	i +"    "+ processWord()[i]+  '\n'  ;
+				resultTxt +=	i +"    "+ processWord()[i]+  ' , '  ;
 			}
 			mkptag(resultTxt);
 		}
@@ -64,9 +64,11 @@
 		
 
 		function mkptag(text){
+			var textbold = document.createElement('B');
 			var Ptag = document.createElement('p');
 			var textnode = document.createTextNode("you use " + text + "times"), pclass = 'dataClass';
-			Ptag.appendChild(textnode);
+			textbold.appendChild(textnode)
+			Ptag.appendChild(textbold);
 			print.appendChild(Ptag);
 			Ptag.className = pclass;
 			
